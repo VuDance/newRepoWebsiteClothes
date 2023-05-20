@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liên hệ</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="lienhe.css" />
+
+    <script>
+      function validateForm() {
+        var name = document.forms["contactForm"]["name"].value;
+        var email = document.forms["contactForm"]["email"].value;
+
+        if (!validateName(name)) {
+          alert(
+            "Tên phải có ít nhất 10 ký tự, không chứa số và ký tự đặc biệt."
+          );
+          return false;
+        }
+
+        if (!validateEmail(email)) {
+          alert("Vui lòng nhập địa chỉ email hợp lệ.");
+          return false;
+        }
+
+        return true;
+      }
+
+      function validateName(name) {
+        var namePattern = /^([a-z]+)((\s{1}[a-z]+){1,})$/;
+        return namePattern.test(name);
+      }
+
+      function validateEmail(email) {
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="Layout-wrapper">
+      <div class="Logo-image">
+        <img src="Image/Logo.png" />
+      </div>
+      <div class="header">
+        <div id="menu">
+          <ul>
+            <li><a href="./Home.html">Trang chủ</a></li>
+            <li>
+              <a href="./AllProductsPage/AllProductsPage.html"
+                >Sản phẩm &#8711;
+              </a>
+              <div>
+                <ul class="menu-Cap2">
+                  <li><a>Tất cả</a></li>
+                  <li><a>Nón </a></li>
+                  <li><a>Giày </a></li>
+                  <li><a>Quần</a></li>
+                  <li><a>Áo</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="GioiThieu.html">Giới thiệu</a></li>
+            <li><a href="./LienHe.html">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="header-left">
+          <form action="" id="search-box">
+            <input
+              type="text"
+              id="search-text"
+              placeholder="Bạn muốn mua gì?"
+            />
+            <button id="search-but"><i class="fa fa-search"></i></button>
+          </form>
+          <button id="login-button"><i class="fa-solid fa-user"></i></button>
+        </div>
+      </div>
+      <div class="Layout-content">
+        <h1>Liên hệ</h1>
+        <form name="contactForm" onsubmit="return validateForm()" method="get">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="your full name"
+            required
+          /><br />
+
+          <label for="email">Email:</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="What your email?"
+            required
+          /><br />
+
+          <label for="message">Your question...?:</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder=" Message"
+            required
+          ></textarea
+          ><br />
+
+          <input type="submit" id="send" value="Gửi" />
+        </form>
+      </div>
+      <footer>
+        <div class="footer-content">
+          <div class="footer-address">
+            <ul>
+              <li><h4>Hệ Thống Cửa Hàng:</h4></li>
+              <li>Store 1: 17 Huỳnh Đình Hai, P14 - Quận Bình Thạnh, Tp.HCM</li>
+              <li>Store 2: 332 Cao Đạt, P.1 - Quận 5, Tp.HCM</li>
+              <li>Store 3: 539 Sư Vạn Hạnh P.13 - Quận 10, Tp.HCM</li>
+              <li>Store 4: 1002 Quang Trung P.8, Quận Gò Vấp, Tp.HCM</li>
+              <li>
+                Store 5: 164 - 166 Trường Chinh P.13, Quận Tân Bình, TP.HCM
+              </li>
+            </ul>
+          </div>
+          <div class="footer-mid">
+            <b><i class="fa-solid fa-phone-volume"></i> HỖ TRỢ(9:00 - 22:00)</b
+            ><br /><br />
+            <strong>
+              HotLine: <a>0287 337 64 54</a><i class="fa-solid fa-envelope"></i
+              ><a>tranchicong@gmail.com</a></strong
+            >
+            <h4>Giới Thiệu</h4>
+            <h4>Liên hệ</h4>
+          </div>
+          <div class="footer-right">
+            <h3>Theo dõi chúng tôi:</h3>
+            <div class="footer-media">
+              <i class="fa-brands fa-tiktok"></i>
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-instagram"></i>
+            </div>
+            <p>Phương thức thanh toán:</p>
+            <img
+              src="https://theme.hstatic.net/1000026602/1001012449/14/img-payment.png?v=698"
+            />
+          </div>
+          <div class="right">
+            <img
+              id="BCT"
+              src="https://theme.hstatic.net/1000026602/1001012449/14/thongbao.png?v=698"
+            />
+          </div>
+        </div>
+        <p>Bản quyền © 2023</p>
+      </footer>
+    </div>
+  </body>
+</html>
