@@ -1,6 +1,9 @@
 import data from "./list.js";
+import dataUser from "../LoginAndRegister/ListUser.js";
 
 function MyComponent() {
+  localStorage.setItem("listUser", JSON.stringify(dataUser));
+
   const container = document.createElement("div");
   localStorage.setItem("listProduct", JSON.stringify(data));
   const arr = JSON.parse(localStorage.getItem("listProduct"));

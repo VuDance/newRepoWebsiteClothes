@@ -87,3 +87,6 @@ body {
 .signup-link a {
   text-decoration: underline;
 }
+.show {
+  display: block !important;
+}

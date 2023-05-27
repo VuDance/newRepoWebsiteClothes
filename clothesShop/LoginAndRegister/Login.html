@@ -11,7 +11,7 @@
     <form class="form">
       <p class="form-title">Sign in to your account</p>
       <div class="input-container">
-        <input placeholder="Enter email" type="email" />
+        <input id="email" placeholder="Enter email" type="email" />
         <span>
           <svg
             stroke="currentColor"
@@ -29,7 +29,7 @@
         </span>
       </div>
       <div class="input-container">
-        <input placeholder="Enter password" type="password" />
+        <input id="password" placeholder="Enter password" type="password" />
 
         <span>
           <svg
@@ -53,12 +53,55 @@
           </svg>
         </span>
       </div>
-      <button class="submit" type="submit">Sign in</button>
+      <div style="color: red; display: none" id="notifi">
+        Sai tài khoản hoặc mật khẩu
+      </div>
+      <button class="submit" type="submit" id="btnLogin">Sign in</button>
 
       <p class="signup-link">
         No account?
         <a href="./Register.html">Sign up</a>
       </p>
     </form>
+    <script type="module">
+      import list from "./ListUser.js";
+      function login() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        if (email === "") {
+          alert("Vui lòng nhập địa chỉ email.");
+          return false;
+        }
+        console.log("ol");
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert("Vui lòng nhập địa chỉ email hợp lệ.");
+          return false;
+        }
+
+        if (password === "") {
+          alert("Vui lòng nhập mật khẩu.");
+          return false;
+        }
+
+        let exitUser = list.filter((i) => i.email === email);
+        if (exitUser.length === 0) {
+          document.getElementById("notifi").classList.add("show");
+        } else {
+          if (exitUser[0].password === password) {
+            localStorage.setItem("user", JSON.stringify(exitUser[0]));
+            window.location.href = "../Home/Home.html";
+          } else {
+            document.getElementById("notifi").classList.add("show");
+          }
+        }
+      }
+      document
+        .getElementById("btnLogin")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          login();
+        });
+    </script>
   </body>
 </html>

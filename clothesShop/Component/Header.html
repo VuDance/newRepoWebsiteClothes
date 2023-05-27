@@ -18,7 +18,10 @@
       referrerpolicy="no-referrer"
     />
     <link href="./Header.css" rel="stylesheet" />
-    <title>Chi tiết sản phẩm</title>
+    <link rel="stylesheet" href="../DetailProduct/DetailProduct.css" />
+
+    <title>www.somehow</title>
+
     <style>
       .hover-menu:hover .menu {
         display: block !important;
@@ -48,11 +51,132 @@
     </style>
   </head>
   <body class="d-flex flex-column w-100 h-auto align-items-center p-4">
+    <div class="position-absolute d-flex gap-3" style="right: 50px; top: 30px">
+      <i
+        class="fa-solid fa-magnifying-glass"
+        style="font-size: 22px; cursor: pointer"
+        id="searchBtn"
+      ></i>
+      <i
+        class="fa-solid fa-user"
+        style="font-size: 22px; cursor: pointer"
+        id="user"
+      ></i>
+      <i
+        class="fa-solid fa-bag-shopping"
+        style="font-size: 22px; cursor: pointer"
+        id="cart"
+      ></i>
+      <span
+        id="bag-quantity"
+        style="
+          position: absolute;
+          right: -15px;
+          top: -10px;
+          border-radius: 50%;
+          background-color: black;
+          color: #fff;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+        >3</span
+      >
+    </div>
+    <!-- modal cart -->
+    <div class="modal-cart" id="modal-cart">
+      <div
+        style="
+          padding: 30px !important;
+
+          position: absolute;
+          right: 0;
+          height: 100vh;
+          width: 500px;
+          background-color: #fff;
+          z-index: 200;
+        "
+      >
+        <div
+          style="position: absolute; right: 10px; top: 10px; cursor: pointer"
+          id="closeModalCart"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <p>GIỎ HÀNG</p>
+        <div id="cart-wrapper-item"></div>
+        <p style="width: 100%; height: 3px; background-color: black"></p>
+        <div
+          style="
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          "
+        >
+          <p>TỔNG TIỀN :</p>
+          <p id="totalPrice"></p>
+        </div>
+        <div
+          id="buy"
+          style="
+            height: 50px;
+            background-color: black;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px !important;
+          "
+        >
+          THANH TOÁN
+        </div>
+      </div>
+    </div>
+    <!-- end modal cart -->
+
+    <!-- modal-search -->
+    <div class="modal-search" id="modal-search">
+      <div
+        style="
+          padding: 30px !important;
+          position: absolute;
+          right: 0;
+          height: 100vh;
+          width: 500px;
+          background-color: #fff;
+          z-index: 200;
+        "
+      >
+        <div
+          style="position: absolute; right: 10px; top: 10px; cursor: pointer"
+          id="closeModalSearch"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <input
+          id="inputSearch"
+          type="text"
+          style="
+            width: 100%;
+            height: 50px;
+            border: none;
+            background-color: #ccc;
+            padding: 10px;
+          "
+          placeholder="Tìm kiếm"
+        />
+        <div id="listSearch"></div>
+      </div>
+    </div>
+    <!-- end modal search -->
     <div class="w-25">
       <img class="w-100" src="../Image/Logo.png" />
     </div>
     <div class="d-flex w-100 gap-3 fw-bold">
-      <a href="#">TRANG CHỦ</a>
+      <a href="../Home/Home.html">TRANG CHỦ</a>
       <div class="hover-menu" style="position: relative">
         SẢN PHẨM <i class="fa-solid fa-caret-down"></i>
         <div
@@ -66,15 +190,36 @@
             z-index: 100;
             background-color: #fff;
           "
+          id="link-menu"
         >
-          <a href="#" style="display: block; padding: 5px">TẤT CẢ</a>
-          <a href="#" style="display: block; padding: 5px">QUẦN</a>
-          <a href="#" style="display: block; padding: 5px">ÁO</a>
-          <a href="#" style="display: block; padding: 5px">GIÀY</a>
+          <a
+            target="_top"
+            href="../Category/Category.html?category=all"
+            style="display: block; padding: 5px"
+            >TẤT CẢ</a
+          >
+          <a
+            target="_top"
+            href="/clothesShop/Category/Category.html?category=quần"
+            style="display: block; padding: 5px"
+            >QUẦN</a
+          >
+          <a
+            target="_top"
+            href="/clothesShop/Category/Category.html?category=áo"
+            style="display: block; padding: 5px"
+            >ÁO</a
+          >
+          <a
+            target="_top"
+            href="/clothesShop/Category/Category.html?category=giày"
+            style="display: block; padding: 5px"
+            >GIÀY</a
+          >
         </div>
       </div>
-      <a href="#">LIÊN HỆ</a>
-      <a href="#">GIỚI THIỆU</a>
+      <a target="_top" href="../LienHe/LienHe.html">LIÊN HỆ</a>
+      <a target="_top" href="../GioiThieu/GioiThieu.html">GIỚI THIỆU</a>
     </div>
 
     <section class="banner w-100">

@@ -45,9 +45,9 @@ const data = [
     category: "Quần",
     price: 300000,
     stock: 0,
-    image1: "../Image/Giày Gravi Cap Black 1.webp",
-    image2: "../Image/Giày Gravi Cap Black 2.webp",
-    image3: "../Image/Giày Gravi Cap Black 3.webp",
+    image1: "../Image/Quần Short Dailywear Zipper 1.webp",
+    image2: "../Image/Quần Short Dailywear Zipper 2.webp",
+    image3: "../Image/Quần Short Dailywear Zipper 3.webp",
   },
   {
     id: 6,

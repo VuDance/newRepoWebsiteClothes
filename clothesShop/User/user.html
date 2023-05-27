@@ -11,6 +11,8 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="../DetailProduct/DetailProduct.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -18,8 +20,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link href="./DetailProduct.css" rel="stylesheet" />
-    <title>Document</title>
     <style>
       .hover-menu:hover .menu {
         display: block !important;
@@ -47,10 +47,9 @@
         color: black;
       }
     </style>
+    <title>Document</title>
   </head>
-  <body
-    class="d-flex flex-column w-100 h-auto align-items-center p-4 position-relative"
-  >
+  <body class="d-flex flex-column w-100 h-auto align-items-center p-4">
     <div class="position-absolute d-flex gap-3" style="right: 50px; top: 30px">
       <i
         class="fa-solid fa-magnifying-glass"
@@ -59,8 +58,8 @@
       ></i>
       <i
         class="fa-solid fa-user"
-        style="font-size: 22px; cursor: pointer"
         id="user"
+        style="font-size: 22px; cursor: pointer"
       ></i>
       <i
         class="fa-solid fa-bag-shopping"
@@ -173,7 +172,6 @@
       </div>
     </div>
     <!-- end modal search -->
-
     <div class="w-25">
       <img class="w-100" src="../Image/Logo.png" />
     </div>
@@ -219,163 +217,43 @@
       <a href="../LienHe/LienHe.html">LIÊN HỆ</a>
       <a href="../GioiThieu/GioiThieu.html">GIỚI THIỆU</a>
     </div>
-    <main id="main-content">
-      <div class="content-left">
-        <div class="thumbnail">
-          <img id="thumbnail1" class="chooseThumbnail" />
-          <br />
-          <img id="thumbnail2" />
-          <br />
-
-          <img id="thumbnail3" />
-        </div>
-        <div class="main-img">
-          <img id="main-img" style="height: 500px" />
-        </div>
-      </div>
-      <div class="contetn-right">
-        <p id="name"></p>
-        <h4 id="price"></h4>
-
-        <p style="font-weight: bold; margin-top: 10px">Kích thước</p>
-        <div style="display: flex; gap: 10px">
-          <div class="size chooseThumbnail">S</div>
-          <div class="size">M</div>
-          <div class="size">L</div>
-          <div class="size">XL</div>
-        </div>
-        <div class="btnAdd" id="btnAdd">THÊM VÀO GIỎ HÀNG</div>
-        <div
-          style="
-            margin-top: 30px !important;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-          "
+    <main
+      style="
+        margin-top: 50px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div style="display: flex">
+        <h3>BẠN CÓ</h3>
+        <h3
+          id="count"
+          style="margin-left: 5px !important; margin-right: 5px !important"
         >
-          <div
-            style="
-              height: 50px;
-
-              display: flex;
-              align-items: center;
-              width: 100%;
-              border-bottom: 1px;
-              border-bottom-style: solid;
-              border-bottom-color: #ccc;
-            "
-          >
-            <i
-              class="fa-solid fa-truck-moving"
-              style="font-size: 24px; width: 40px"
-            ></i>
-            Miễn phí giao hàng cho đơn trên 500.000đ
-          </div>
-
-          <div
-            style="
-              height: 50px;
-
-              display: flex;
-              align-items: center;
-              border-bottom: 1px;
-              border-bottom-style: solid;
-              border-bottom-color: #ccc;
-            "
-          >
-            <i
-              class="fa-solid fa-headphones-simple"
-              style="font-size: 24px; width: 40px"
-            ></i>
-            0123 456 789
-          </div>
-
-          <div
-            style="
-              height: 50px;
-              display: flex;
-              align-items: center;
-              border-bottom: 1px;
-              border-bottom-style: solid;
-              border-bottom-color: #ccc;
-            "
-          >
-            <i
-              class="fa-solid fa-rotate-right"
-              style="font-size: 24px; width: 40px"
-            ></i>
-            Chính sách đổi trả
-          </div>
-        </div>
-
-        <div style="margin-top: 10px !important">
-          <p>Thông tin sản phẩm</p>
-          <p>- Chất liệu: Cotton blend</p>
-          <p>- Độ co giãn: Ít</p>
-          <p>- Logo: Tự thiêu</p>
-          <p>- Phong Cách: Basic</p>
-        </div>
+          0
+        </h3>
+        <h3>ĐƠN HÀNG</h3>
+      </div>
+      <div id="orderUser"></div>
+      <div
+        id="logout"
+        style="
+          margin-top: 10px !important;
+          height: 30px;
+          width: 100px;
+          background-color: black;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        "
+      >
+        Đăng xuất
       </div>
     </main>
-
-    <div style="width: 90%">
-      <h4>Khách hàng đánh giá</h4>
-      <br />
-      <div class="comment">
-        <div class="comment-left">
-          <h1>0</h1>
-          <div>
-            <i class="fa-regular fa-star" style="color: #f8ce1a"></i
-            ><i class="fa-regular fa-star" style="color: #f8ce1a"></i
-            ><i class="fa-regular fa-star" style="color: #f8ce1a"></i
-            ><i class="fa-regular fa-star" style="color: #f8ce1a"></i
-            ><i class="fa-regular fa-star" style="color: #f8ce1a"></i>
-          </div>
-        </div>
-        <div class="comment-right">
-          <p>Hàng có vừa không ?</p>
-          <div class="comment-item">
-            <p>Nhỏ:</p>
-            <p
-              style="height: 10px; width: 250px; background-color: #e3e3e3"
-            ></p>
-            <p>0%</p>
-          </div>
-          <div class="comment-item">
-            <p>Đúng với kích thước:</p>
-
-            <p
-              style="height: 10px; width: 250px; background-color: #e3e3e3"
-            ></p>
-            <p>0%</p>
-          </div>
-          <div class="comment-item">
-            <p>Lớn:</p>
-            <p
-              style="height: 10px; width: 250px; background-color: #e3e3e3"
-            ></p>
-            <p>0%</p>
-          </div>
-        </div>
-      </div>
-      <br />
-    </div>
-    <div style="width: 100%; text-align: center; margin-top: 20px">
-      <h2>Outfit of the day</h2>
-      <img style="width: 15%; margin: 5px" src="../assets/outfit-1.jpg" />
-      <img style="width: 15%; margin: 5px" src="../assets/outfit-2.jpg" />
-      <img style="width: 15%; margin: 5px" src="../assets/outfit-3.jpg" />
-      <img style="width: 15%; margin: 5px" src="../assets/outfit-4.jpg" />
-      <img style="width: 15%; margin: 5px" src="../assets/outfit-5.jpg" />
-      <img style="width: 15%; margin: 5px" src="../assets/outfit-6.jpg" />
-      <img style="width: 15%; margin: 5px" src="../assets/outfit-7.jpg" />
-      <img style="width: 15%; margin: 5px" src="../assets/outfit-8.jpg" />
-      <img style="width: 15%; margin: 5px" src="../assets/outfit-9.jpg" />
-      <img style="width: 15%; margin: 5px" src="../assets/outfit-10.jpg" />
-      <img style="width: 15%; margin: 5px" src="../assets/outfit-11.jpg" />
-      <img style="width: 15%; margin: 5px" src="../assets/outfit-12.jpg" />
-    </div>
-    <iframe src="../Component/Footer.html" width="100%" height="300px"></iframe>
+    <script src="./User.js"></script>
   </body>
-  <script src="./DetailProduct.js" type="module"></script>
 </html>

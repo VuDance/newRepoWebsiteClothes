@@ -10,19 +10,83 @@
   </head>
   <body>
     <div class="form-box">
-      <form class="form">
+      <form class="form" onsubmit="return validateForm()">
         <span class="title">Sign up</span>
         <span class="subtitle">Create a free account with your email.</span>
         <div class="form-container">
-          <input type="text" class="input" placeholder="Full Name" />
-          <input type="email" class="input" placeholder="Email" />
-          <input type="password" class="input" placeholder="Password" />
+          <input
+            type="text"
+            id="fullName"
+            class="input"
+            placeholder="Full Name"
+          />
+          <input type="email" id="email" class="input" placeholder="Email" />
+          <input
+            type="password"
+            id="password"
+            class="input"
+            placeholder="Password"
+          />
         </div>
-        <button>Sign up</button>
+        <button type="submit" id="btnRegister">Sign up</button>
       </form>
       <div class="form-section">
         <p>Have an account? <a href="./Login.html">Log in</a></p>
       </div>
     </div>
+    <script>
+      function validateForm() {
+        var fullName = document.getElementById("fullName").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        if (fullName === "") {
+          alert("Vui lòng nhập họ tên.");
+          return false;
+        }
+
+        if (email === "") {
+          alert("Vui lòng nhập địa chỉ email.");
+          return false;
+        }
+
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert("Vui lòng nhập địa chỉ email hợp lệ.");
+          return false;
+        }
+
+        if (password === "") {
+          alert("Vui lòng nhập mật khẩu.");
+          return false;
+        }
+
+        return true;
+      }
+
+      function check() {
+        var fullName = document.getElementById("fullName").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        if (validateForm()) {
+          localStorage.setItem(
+            "user",
+            JSON.stringify({ fullName, email, password })
+          );
+
+          let listUser = JSON.parse(localStorage.getItem("listUser"));
+          listUser.push({ fullName, email, password });
+
+          localStorage.setItem("listUser", JSON.stringify(listUser));
+        }
+      }
+      document
+        .getElementById("btnRegister")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          check();
+          window.location.href = "../Home/Home.html";
+        });
+    </script>
   </body>
 </html>

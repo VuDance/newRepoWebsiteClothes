@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+.content {
+  background: url("../Image/nen_gt.jpg") no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Box {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(251, 247, 247, 0.5);
+  width: 60%;
+  height: 1100px;
+  margin: 0 20%;
+}
+#clothes {
+  height: 400px;
+  width: 400px;
+}
+.Box h2 {
+  font-size: 60px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.Box p {
+  text-transform: unset;
+  margin: 0 20%;
+}
+.Box ul li {
+  list-style-type: none;
+  margin: 20px;
+}
